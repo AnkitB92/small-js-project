@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/">Demo</a>
+    </nav>
+
+    <main>
+      <div class="info">
+        <h1>Guess The Number</h1>
+        <ul>
+          <li>Guess number between 1 to 100</li>
+          <li>You have 10 attempts.</li>
+        </ul>
+      </div>
+      <form class="myForm" id="form">
+        <label for="guess-input">Enter your guess</label>
+        <input type="text" class="guess-input" id="user-input">
+        <input type="submit" class="hover submit-btn" id="sub" value="Submit">
+      </form>
+      <div class="game-control">
+        <button class="submit-btn hover" id="start">Start game</button>
+        <button class="submit-btn hover" id="end">End game</button>
+      </div>
+      <div class="display">
+        <p>Previous guesses: <span class="guesses" id="guesses"></span></p>
+        <p>Guess remaining: <span class="attempts" id="attempts"></span></p>
+        <p class="lowHigh" id="lowHigh"></p>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

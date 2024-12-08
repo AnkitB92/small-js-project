@@ -1,0 +1,31 @@
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid hsl(190, 100%, 40%);
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: hsl(190, 100%, 30%);
+}
+
+h3 {
+  border-bottom: 2px solid aqua;
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  text-transform: capitalize;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#clock {
+  font-weight: bold;
+  font-family: cursive;
+  width: 200px;
+  text-align: center;
+  font-size: 2em;
+  box-shadow: 0 0 5px 1px aqua;
+  padding: 10px 20px;
+  border-radius: 30px 10px 30px 10px;
+}
