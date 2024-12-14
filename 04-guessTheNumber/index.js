@@ -14,21 +14,37 @@ const guesses = document.querySelector('#guesses');
 const showChances = document.querySelector('#chances');
 const lowHigh = document.querySelector('#lowHigh');
 
-
 let canPlay = false;
 let prevGuess = [];
 let attempt = 10;
 
+
+console.log(randoNum);
+
+guesses.innerHTML = 'None';
+showChances.innerHTML = attempt;
+lowHigh.innerHTML = 'Start Guessing'
+
+
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
-
-  if (canPlay) {
-    const guess = parseInt(userInput.value);
-    console.log(guess)
-    console.log(typeof guess)
-  }
-
-  if (!canPlay) {
-    console.log('you cannot play')
+  const guess = parseInt(userInput.value)
+  if (isValid) {
+    checkGuess(guess)
   }
 })
+
+
+function isValid(guess) {
+  return !isNaN(guess) && guess > 0 && guess <= 100;
+}
+
+function checkGuess(guess) {
+  if (guess > randoNum) {
+    lowHigh.innerHTML = 'High'
+  } else if (guess < randoNum) {
+    lowHigh.innerHTML = 'Low'
+  } else if (guess === randoNum) {
+    lowHigh.innerHTML = `You Won. Number is ${randoNum}`
+  }
+}
