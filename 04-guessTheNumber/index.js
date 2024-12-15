@@ -114,7 +114,7 @@ function startGame() {
   msg = '';
 
   updateBoard('Start Guessing');
-  
+
   display.children[2].style.fontSize = '';
   display.children[2].style.color = '';
   display.children[1].style.backgroundColor = '';
