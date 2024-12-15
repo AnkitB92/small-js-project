@@ -14,6 +14,8 @@ const guesses = document.querySelector('#guesses');
 const showChances = document.querySelector('#chances');
 const lowHigh = document.querySelector('#lowHigh');
 
+const display = document.querySelector('.display');
+
 
 let prevGuess = [];
 let attempts = 10;
@@ -21,7 +23,7 @@ let msg = '';
 
 console.log(randoNum);
 
-update('Start Guessing');
+updateBoard('Start Guessing');
 userInput.focus();
 
 submitBtn.addEventListener('click', (e) => {
@@ -31,11 +33,12 @@ submitBtn.addEventListener('click', (e) => {
   if (isValid(guess)) {
     checkGuess(guess);
   } else {
-    customAlert(msg);
+    customLog(msg);
   }
 })
 
 endBtn.addEventListener('click', endGame)
+startBtn.addEventListener('click', startGame)
 
 function isValid(guess) {
   if (isNaN(guess)) {
@@ -51,41 +54,81 @@ function isValid(guess) {
 
 function checkGuess(guess) {
 
-  if (attempts === 0) return;
+  console.log(`Attempts Left: ${attempts}|Guess: ${guess}`)
 
   attempts--;
   prevGuess.push(guess);
   form.reset();
 
   if (guess > randoNum) {
-    update('High');
+    updateBoard('High');
   } else if (guess < randoNum) {
-    update('Low');
+    updateBoard('Low');
   } else if (guess === randoNum) {
-    update(`You Won. Number is ${randoNum}`);
+    updateBoard(`You Won. Number is ${randoNum}`);
+    lowHigh.style.backgroundColor = 'Green'
     endGame();
   }
 
   if (attempts === 0) {
+    display.children[1].style.backgroundColor = 'red';
+    display.children[2].style.color = 'red';
+    display.children[2].style.fontSize = '1.5em';
+    lowHigh.innerHTML = 'Game Over';
     endGame();
     console.log('No attempts left');
   }
 }
 
-function update(lowHighMsg) {
+function updateBoard(lowHighMsg) {
   showChances.innerHTML = attempts;
   lowHigh.innerHTML = lowHighMsg;
   guesses.innerHTML = prevGuess.join(',') || 'None';
 }
 
-function customAlert() {
+function customLog() {
   console.log(msg);
 }
 
-
 function endGame() {
   userInput.setAttribute('disabled', 'true');
+
+  // remove submit button access and styling
   submitBtn.classList.remove('hover');
   submitBtn.style.cursor = 'default';
   submitBtn.setAttribute('disabled', 'true');
+
+  // remove end game button access and styling
+  endBtn.classList.remove('hover');
+  endBtn.style.cursor = 'default';
+  endBtn.setAttribute('disabled', 'true')
+}
+
+function startGame() {
+
+  randoNum = Math.floor(Math.random() * 100 + 1);
+  console.log(randoNum);
+
+  prevGuess = [];
+  attempts = 10;
+  msg = '';
+
+  updateBoard('Start Guessing');
+  
+  display.children[2].style.fontSize = '';
+  display.children[2].style.color = '';
+  display.children[1].style.backgroundColor = '';
+  lowHigh.style.backgroundColor = '';
+  userInput.focus();
+  userInput.removeAttribute('disabled');
+
+  // restore submit button
+  submitBtn.classList.add('hover');
+  submitBtn.style.cursor = 'pointer';
+  submitBtn.removeAttribute('disabled');
+
+  // restore end game button
+  endBtn.classList.add('hover');
+  endBtn.style.cursor = 'pointer';
+  endBtn.removeAttribute('disabled');
 }
