@@ -20,10 +20,10 @@ startStop.addEventListener('click', () => {
   // dynamically changes button text & function call
   if (startStop.textContent === 'Start') {
     startStop.textContent = 'Stop';
-    startColorChange()
+    startColorChange();
   } else {
     startStop.textContent = 'Start';
-    stopColorChange()
+    stopColorChange();
   }
 })
 
@@ -31,19 +31,19 @@ startStop.addEventListener('click', () => {
 // returns random color
 function randomColor() {
   const hexStr = '0123456789ABCDEF';
-  let hexColor = '#'
+  let hexColor = '#';
   for (let i = 0; i < 6; i++) {
-    const randoNum = Math.floor(Math.random() * hexStr.length)
-    hexColor += hexStr[randoNum]
+    const randoNum = Math.floor(Math.random() * hexStr.length);
+    hexColor += hexStr[randoNum];
   }
-  return hexColor
+  return hexColor;
 }
 
 
 // repeats changeBgColor every 300ms
 function startColorChange() {
   if (intervalId) return;
-  intervalId = setInterval(changeBgColor, 300)
+  intervalId = setInterval(changeBgColor, 300);
 }
 
 
