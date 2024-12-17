@@ -4,9 +4,18 @@ const main = document.querySelector('main');
 
 // global variable
 let intervalId = null;
+let isRunning = false;
 
 // add click event to start/stop button
 startStop.addEventListener('click', () => {
+
+  if (isRunning) return;
+  isRunning = true;
+
+  // resets isRunning back to false
+  setTimeout(() => {
+    isRunning = false;
+  }, 1000);
 
   // dynamically changes button text & function call
   if (startStop.textContent === 'Start') {
