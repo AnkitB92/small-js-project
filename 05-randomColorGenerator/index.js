@@ -1,45 +1,45 @@
 const startStop = document.querySelector('#start-stop');
-const hexCode = '0123456789abcdef';
 
 // adding click event to start/stop button
 startStop.addEventListener('click', (e) => {
   let btn = e.target;
 
   // dynamically changing inner text of a button
-  if (btn.innerText === 'Start') {
-    btn.innerText = 'Stop';
+  if (btn.textContent === 'Start') {
+    btn.textContent = 'Stop';
+    startGenerating()
   } else {
-    btn.innerText = 'Start';
+    btn.textContent = 'Start';
+    stopGenerating()
   }
-  // calling function
-  startStopGenerating();
 })
 
-// returns random color
+// function returns random color
 function randomColor() {
+  const hexStr = '0123456789ABCDEF';
   let hexColor = '#'
   for (let i = 0; i < 6; i++) {
-    const randoNum = Math.floor(Math.random() * hexCode.length)
-    hexColor += hexCode[randoNum]
+    const randoNum = Math.floor(Math.random() * hexStr.length)
+    hexColor += hexStr[randoNum]
   }
   return hexColor
 }
+
 
 // global variable to store interval reference
 let intervalId = null;
 
 // applies background color to main element every 500ms
-function startStopGenerating() {
+function startGenerating() {
+  const main = document.querySelector('main');
+  if (intervalId) return;
 
-  // checks for interval id and clears it if exists
-  if (intervalId) {
-    clearInterval(intervalId);
-    console.log('cleared');
-    intervalId = null;
-  } else {
-    intervalId = setInterval(() => {
-      document.querySelector('main')
-        .style.backgroundColor = randomColor();
-    }, 500)
-  }
+  intervalId = setInterval(() => {
+    main.style.backgroundColor = randomColor();
+  }, 500)
+}
+
+function stopGenerating() {
+  clearInterval(intervalId);
+  intervalId = null;
 }
