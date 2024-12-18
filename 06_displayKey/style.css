@@ -1,0 +1,36 @@
+h1 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.text {
+  border: 1px solid;
+  height: 90px;
+  width: 450px;
+  justify-self: center;
+  text-align: center;
+  align-content: center;
+}
+
+table {
+  border: 1px solid;
+  border-collapse: collapse;
+  width: 450px;
+  height: 90px;
+  justify-self: center;
+  text-align: center;
+}
+
+td,
+th {
+  border: 1px solid;
+  padding: 10px 15px;
+}
+
+table th:first-of-type {
+  width: 130px;
+}
+
+table th:last-of-type {
+  width: 170px;
+}
