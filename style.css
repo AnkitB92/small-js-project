@@ -59,8 +59,14 @@ main {
 
 .link {
   font-size: 1.2em;
-  background-color: #fff;
+  background-color: hsl(0, 0%, 80%);
   padding: 8px 20px;
   border-radius: 5px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  transition: all 0.15s;
+}
+
+.link:hover {
+  background-color: hsl(0, 0%, 100%);
+  scale: 1.05;
 }
