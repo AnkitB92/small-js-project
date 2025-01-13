@@ -25,7 +25,7 @@ a {
   align-content: center;
 }
 
-nav {
+nav, header {
   margin-top: 5px;
   background-color: hsl(220, 30%, 15%);
   height: 60px;
@@ -35,7 +35,8 @@ nav {
   gap: 20px;
 }
 
-nav>a {
+nav>a,
+.menu-label {
   color: #fff;
   border: 1px solid;
   border-radius: 5px;
@@ -47,7 +48,48 @@ main {
   background-color: hsl(220, 10%, 20%);
   padding: 15px;
   height: calc(100vh - 70px);
+}
 
+.menu {
+  position: relative;
+}
+
+.menu-label {
+  user-select: none;
+  cursor: pointer;
+}
+
+#menu-check {
+  display: none;
+}
+
+#menu-check:not(:checked)~.menu-list {
+  display: none;
+  /* Show menu when checkbox is checked */
+}
+
+.menu-list {
+  background-color: white;
+  position: absolute;
+  width: max-content;
+  top: 35px;
+  left: -40px;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  overflow: hidden;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgb(129, 129, 129);
+}
+
+.menu-list>a {
+  border: 1px solid gray;
+  background-color: rgb(240, 240, 240);
+  padding: 10px;
+}
+
+.menu a:hover {
+  background-color: white;
 }
 
 .project-links {
