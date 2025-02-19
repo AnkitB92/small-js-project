@@ -25,7 +25,8 @@ a {
   align-content: center;
 }
 
-nav, header {
+nav,
+header {
   margin-top: 5px;
   background-color: hsl(220, 30%, 15%);
   height: 60px;
@@ -65,7 +66,6 @@ main {
 
 #menu-check:not(:checked)~.menu-list {
   display: none;
-  /* Show menu when checkbox is checked */
 }
 
 .menu-list {
@@ -73,7 +73,7 @@ main {
   position: absolute;
   width: max-content;
   top: 35px;
-  left: -40px;
+  left: 30px;
   display: flex;
   flex-direction: column;
   z-index: 5;
@@ -111,4 +111,8 @@ main {
 .link:hover {
   background-color: hsl(0, 0%, 100%);
   scale: 1.05;
+}
+
+.active {
+  font-weight: bolder;
 }
