@@ -1,3 +1,8 @@
+import { addNav } from '../index.js';
+
+
+addNav('Digital Clock');
+
 const clock = document.getElementById('clock');
 clock.innerHTML = new Date().toLocaleTimeString();
 

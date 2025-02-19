@@ -1,3 +1,8 @@
+import { addNav } from "../index.js";
+
+
+addNav('Color Changer');
+
 const buttons = document.querySelectorAll('.btn');
 const main = document.querySelector('main');
 const resetBtn = document.querySelector('#reset-btn');

@@ -1,3 +1,8 @@
+import { addNav } from '../index.js';
+
+
+addNav('Random Color Generator')
+
 // DOM elements
 const startStop = document.querySelector('#start-stop');
 const main = document.querySelector('main');
@@ -27,7 +32,6 @@ startStop.addEventListener('click', () => {
   }
 })
 
-
 // returns random color
 function randomColor() {
   const hexStr = '0123456789ABCDEF';
@@ -39,19 +43,16 @@ function randomColor() {
   return hexColor;
 }
 
-
 // repeats changeBgColor every 300ms
 function startColorChange() {
   if (intervalId) return;
   intervalId = setInterval(changeBgColor, 300);
 }
 
-
 // changes main's background color
 function changeBgColor() {
   main.style.backgroundColor = randomColor();
 }
-
 
 // stops interval and intervalId back to null
 function stopColorChange() {
