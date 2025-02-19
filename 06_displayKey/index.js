@@ -1,12 +1,11 @@
-// const key = document.getElementById('key');
-// const keyCode = document.getElementById('key-code');
-// const code = document.getElementById('code');
+import { addNav } from '../index.js';
+
+
+addNav('Display Keys')
+
 const display = document.getElementById('display');
 
 window.addEventListener('keydown', (e) => {
-  // key.textContent = e.key === ' ' ? '.__.' : e.key;
-  // keyCode.textContent = e.keyCode;
-  // code.textContent = e.code;
 
   display.innerHTML = `
     <table>
