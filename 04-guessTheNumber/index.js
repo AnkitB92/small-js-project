@@ -1,3 +1,8 @@
+import { addNav } from '../index.js'
+
+
+addNav('Guess The Number')
+
 let randoNum = Math.floor(Math.random() * 100 + 1);
 
 // Form, Inputs and Submit
@@ -24,7 +29,6 @@ let msg = '';
 console.log(randoNum);
 
 updateBoard('Start Guessing');
-userInput.focus();
 
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -35,6 +39,7 @@ submitBtn.addEventListener('click', (e) => {
   } else {
     customLog(msg);
   }
+  userInput.focus();
 })
 
 endBtn.addEventListener('click', endGame)
