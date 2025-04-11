@@ -9,11 +9,11 @@ export function addNav(active) {
   const items = [
     {
       name: 'Color Changer',
-      href: '/01-colorchanger/'
+      href: '/01-colorChanger/'
     },
     {
       name: 'BMI Calculator',
-      href: '/02-bmicalculator/'
+      href: '/02-bmiCalculator/'
     },
     {
       name: 'Digital Clock',
