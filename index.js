@@ -9,27 +9,27 @@ export function addNav(active) {
   const items = [
     {
       name: 'Color Changer',
-      href: './01-colorchanger/'
+      href: '/01-colorchanger/'
     },
     {
       name: 'BMI Calculator',
-      href: './02-bmicalculator/'
+      href: '/02-bmicalculator/'
     },
     {
       name: 'Digital Clock',
-      href: './03-digitalClock/'
+      href: '/03-digitalClock/'
     },
     {
       name: 'Guess The Number',
-      href: './04-guessTheNumber/'
+      href: '/04-guessTheNumber/'
     },
     {
       name: 'Random Color Generator',
-      href: './05-randomColorGenerator/'
+      href: '/05-randomColorGenerator/'
     },
     {
       name: 'Display Keys',
-      href: './06_displayKey/'
+      href: '/06_displayKey/'
     },
   ]
 
