@@ -3,7 +3,7 @@ import { addNav } from '../index.js'
 
 addNav('Guess The Number')
 
-let randoNum = Math.floor(Math.random() * 100 + 1);
+let randoNum = Math.floor(Math.random() * 10 + 1);
 
 // Form, Inputs and Submit
 const form = document.querySelector('#form');
@@ -23,22 +23,17 @@ const display = document.querySelector('.display');
 
 
 let prevGuess = [];
-let attempts = 10;
+let attempts = 5;
 let msg = '';
 
-console.log(randoNum);
-
+console.log(`This is the secret number -> ${randoNum}`);
 updateBoard('Start Guessing');
 
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const guess = parseInt(userInput.value);
 
-  if (isValid(guess)) {
-    checkGuess(guess);
-  } else {
-    customLog(msg);
-  }
+  isValid(guess) ? checkGuess(guess) : customLog(msg);
   userInput.focus();
 })
 
@@ -50,8 +45,8 @@ function isValid(guess) {
     msg = 'Not a valid number';
     return false;
   }
-  if (guess < 1 || guess > 100) {
-    msg = 'Not in range of 1 - 100';
+  if (guess < 1 || guess > 10) {
+    msg = 'Not in range of 1 - 10';
     return false;
   }
   return true;
@@ -88,11 +83,11 @@ function checkGuess(guess) {
 function updateBoard(lowHighMsg) {
   showChances.innerHTML = attempts;
   lowHigh.innerHTML = lowHighMsg;
-  guesses.innerHTML = prevGuess.join(',') || 'None';
+  guesses.innerHTML = prevGuess.join(', ') || 'None';
 }
 
-function customLog() {
-  console.log(msg);
+function customLog(message) {
+  console.log(message);
 }
 
 function endGame() {
@@ -110,12 +105,11 @@ function endGame() {
 }
 
 function startGame() {
-
-  randoNum = Math.floor(Math.random() * 100 + 1);
+  randoNum = Math.floor(Math.random() * 10 + 1);
   console.log(randoNum);
 
   prevGuess = [];
-  attempts = 10;
+  attempts = 5;
   msg = '';
 
   updateBoard('Start Guessing');
